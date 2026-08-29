@@ -1,0 +1,148 @@
+/* =========================================
+   MY PERFECT DAY
+   Interactive JavaScript
+   ========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* -----------------------------------------
+       MOOD / VIBE SWITCHER
+       ----------------------------------------- */
+
+    const moodButtons = document.querySelectorAll(".mood-button");
+
+    moodButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+
+            const selectedMood = button.dataset.mood;
+
+            // Remove the current theme
+            document.body.classList.remove("calm", "dreamy");
+
+            // Apply selected theme
+            if (selectedMood === "calm") {
+                document.body.classList.add("calm");
+            }
+
+            if (selectedMood === "dreamy") {
+                document.body.classList.add("dreamy");
+            }
+
+            // Update active button
+            moodButtons.forEach((item) => {
+                item.classList.remove("active");
+            });
+
+            button.classList.add("active");
+        });
+    });
+
+
+    /* -----------------------------------------
+       IDEAL ACTIVITY SELECTOR
+       ----------------------------------------- */
+
+    const activities = {
+        read: {
+            icon: "📖",
+            title: "Read a book",
+            description:
+                "Find a cozy corner, make a warm drink, and disappear into another world for a while."
+        },
+
+        walk: {
+            icon: "🚶",
+            title: "Take a long walk",
+            description:
+                "Put on your favorite playlist, leave the phone in your pocket, and wander somewhere beautiful."
+        },
+
+        create: {
+            icon: "🎨",
+            title: "Make something",
+            description:
+                "Draw, write, cook, photograph, or build something simply because you feel like creating."
+        },
+
+        travel: {
+            icon: "🚗",
+            title: "Explore somewhere",
+            description:
+                "Take a spontaneous little trip and discover a café, park, street, or view you've never seen before."
+        }
+    };
+
+    const activityButtons = document.querySelectorAll(".activity-button");
+
+    const activityIcon = document.getElementById("activity-icon");
+    const activityTitle = document.getElementById("activity-title");
+    const activityDescription =
+        document.getElementById("activity-description");
+
+    activityButtons.forEach((button) => {
+
+        button.addEventListener("click", () => {
+
+            const activity = button.dataset.activity;
+            const selectedActivity = activities[activity];
+
+            // Update active button
+            activityButtons.forEach((item) => {
+                item.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            // Small fade animation
+            activityIcon.style.opacity = "0";
+            activityTitle.style.opacity = "0";
+            activityDescription.style.opacity = "0";
+
+            setTimeout(() => {
+
+                activityIcon.textContent = selectedActivity.icon;
+                activityTitle.textContent = selectedActivity.title;
+                activityDescription.textContent =
+                    selectedActivity.description;
+
+                activityIcon.style.opacity = "1";
+                activityTitle.style.opacity = "1";
+                activityDescription.style.opacity = "1";
+
+            }, 180);
+        });
+    });
+
+
+    /* -----------------------------------------
+       SIMPLE SCROLL REVEAL
+       ----------------------------------------- */
+
+    const revealElements = document.querySelectorAll(
+        ".timeline-item, .meal-card, .evening-card, .activity-result"
+    );
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    revealElements.forEach((element) => {
+        element.classList.add("reveal");
+        observer.observe(element);
+    });
+
+});
