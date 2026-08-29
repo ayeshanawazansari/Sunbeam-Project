@@ -1,0 +1,943 @@
+```css
+/* =========================================
+   MY PERFECT DAY
+   CSS ONLY
+   ========================================= */
+
+
+/* =========================================
+   VARIABLES
+   ========================================= */
+
+:root {
+    --background: #fffaf4;
+    --surface: #fffdf9;
+    --surface-soft: #f7eee5;
+
+    --primary: #d98268;
+    --primary-dark: #a85c49;
+
+    --text: #3e3a38;
+    --text-soft: #77706b;
+
+    --cream: #f8e8d7;
+
+    --border: rgba(62, 58, 56, 0.1);
+
+    --shadow: 0 20px 60px rgba(82, 61, 48, 0.08);
+
+    --heading-font: "Playfair Display", Georgia, serif;
+    --body-font: "DM Sans", Arial, sans-serif;
+
+    --radius: 24px;
+    --transition: 300ms ease;
+}
+
+
+/* =========================================
+   RESET
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--text);
+    background: var(--background);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   COMMON
+   ========================================= */
+
+.container {
+    width: min(1120px, calc(100% - 40px));
+    margin-inline: auto;
+}
+
+.section-heading {
+    max-width: 650px;
+}
+
+.section-heading.centered {
+    margin-inline: auto;
+    text-align: center;
+}
+
+.eyebrow {
+    color: var(--primary-dark);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    margin-bottom: 18px;
+}
+
+.section-heading > p:last-child {
+    color: var(--text-soft);
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 10;
+
+    width: 100%;
+}
+
+.navbar {
+    min-height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: var(--heading-font);
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: var(--text-soft);
+    font-size: 0.9rem;
+
+    transition: color var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary-dark);
+}
+
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.hero {
+    min-height: 760px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 75% 35%,
+            rgba(255, 221, 176, 0.8),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #fff5e8 0%,
+            #fbdcc9 48%,
+            #e9d9d0 100%
+        );
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 140px;
+
+    bottom: -70px;
+    left: 0;
+
+    background: var(--background);
+
+    border-radius: 50% 50% 0 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    padding-top: 60px;
+}
+
+.hero h1 {
+    max-width: 760px;
+
+    font-size: clamp(3.5rem, 8vw, 7rem);
+
+    letter-spacing: -0.04em;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: var(--primary-dark);
+
+    font-style: italic;
+}
+
+.hero-description {
+    max-width: 550px;
+
+    margin: 28px 0 38px;
+
+    color: #665e59;
+
+    font-size: 1.1rem;
+}
+
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 15px 23px;
+
+    color: white;
+    background: var(--text);
+
+    border-radius: 50px;
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+}
+
+.primary-button:hover {
+    background: var(--primary-dark);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(88, 53, 43, 0.18);
+}
+
+.hero-glow {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(2px);
+}
+
+.glow-one {
+    width: 340px;
+    height: 340px;
+
+    right: 10%;
+    top: 15%;
+
+    background: rgba(255, 238, 188, 0.7);
+}
+
+.glow-two {
+    width: 180px;
+    height: 180px;
+
+    right: 28%;
+    bottom: 20%;
+
+    background: rgba(255, 193, 172, 0.35);
+}
+
+
+/* =========================================
+   MOOD
+   ========================================= */
+
+.mood-section {
+    padding: 100px 0 60px;
+}
+
+.mood-switcher {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 32px;
+
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.mood-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 11px 18px;
+
+    border: 1px solid var(--border);
+    border-radius: 50px;
+
+    background: white;
+    color: var(--text-soft);
+
+    transition: all var(--transition);
+}
+
+.mood-button:hover,
+.mood-button.active {
+    color: var(--text);
+
+    border-color: transparent;
+
+    background: var(--cream);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   MORNING TIMELINE
+   ========================================= */
+
+.day-section {
+    padding: 100px 0;
+}
+
+.timeline {
+    position: relative;
+
+    margin-top: 60px;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 92px;
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background: #e6d8cc;
+}
+
+.timeline-item {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 70px 45px 1fr;
+
+    align-items: center;
+
+    min-height: 150px;
+}
+
+.timeline-time {
+    color: var(--primary-dark);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.timeline-dot {
+    width: 12px;
+    height: 12px;
+
+    margin-left: 17px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    box-shadow:
+        0 0 0 6px var(--background);
+
+    z-index: 2;
+}
+
+.timeline-card {
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    padding: 25px 30px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.timeline-card:hover {
+    transform: translateX(8px);
+
+    box-shadow:
+        0 25px 60px rgba(82, 61, 48, 0.12);
+}
+
+.card-icon {
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    width: 58px;
+    height: 58px;
+
+    background: var(--cream);
+
+    border-radius: 18px;
+
+    font-size: 1.5rem;
+}
+
+.timeline-card h3 {
+    margin-bottom: 5px;
+
+    font-size: 1.35rem;
+}
+
+.timeline-card p {
+    color: var(--text-soft);
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================
+   MEALS
+   ========================================= */
+
+.meals-section {
+    padding: 110px 0;
+
+    background: var(--surface-soft);
+}
+
+.meal-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-top: 55px;
+}
+
+.meal-card {
+    min-height: 430px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: flex-end;
+
+    border-radius: var(--radius);
+
+    background-size: cover;
+    background-position: center;
+
+    box-shadow: var(--shadow);
+
+    transition: transform var(--transition);
+}
+
+.meal-card:hover {
+    transform: translateY(-8px);
+}
+
+.breakfast {
+    background:
+        linear-gradient(
+            transparent,
+            rgba(39, 27, 20, 0.75)
+        ),
+        radial-gradient(
+            circle at 40% 30%,
+            #f7d89d,
+            #d7956f 65%,
+            #9b5f4e
+        );
+}
+
+.lunch {
+    background:
+        linear-gradient(
+            transparent,
+            rgba(39, 27, 20, 0.75)
+        ),
+        radial-gradient(
+            circle at 65% 25%,
+            #c9d49c,
+            #879c72 55%,
+            #536552
+        );
+}
+
+.dinner {
+    background:
+        linear-gradient(
+            transparent,
+            rgba(39, 27, 20, 0.8)
+        ),
+        radial-gradient(
+            circle at 50% 30%,
+            #edb47d,
+            #a96758 55%,
+            #514347
+        );
+}
+
+.meal-overlay {
+    width: 100%;
+
+    padding: 30px;
+
+    color: white;
+}
+
+.meal-label {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+
+    opacity: 0.8;
+}
+
+.meal-card h3 {
+    margin-bottom: 8px;
+
+    font-size: 1.8rem;
+}
+
+.meal-card p {
+    font-size: 0.88rem;
+
+    opacity: 0.85;
+}
+
+
+/* =========================================
+   ACTIVITY
+   ========================================= */
+
+.activity-section {
+    padding: 120px 0;
+}
+
+.activity-content {
+    max-width: 850px;
+
+    margin-inline: auto;
+}
+
+.activity-buttons {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin: 35px 0;
+}
+
+.activity-button {
+    padding: 12px 18px;
+
+    color: var(--text-soft);
+
+    background: transparent;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50px;
+
+    transition: all var(--transition);
+}
+
+.activity-button:hover,
+.activity-button.active {
+    color: white;
+
+    background: var(--text);
+
+    border-color: var(--text);
+
+    transform: translateY(-2px);
+}
+
+.activity-result {
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 35px;
+
+    border-radius: var(--radius);
+
+    background: #f2e8dd;
+}
+
+.activity-icon {
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    width: 80px;
+    height: 80px;
+
+    background: white;
+
+    border-radius: 24px;
+
+    font-size: 2rem;
+}
+
+.result-label {
+    margin-bottom: 4px;
+
+    color: var(--primary-dark);
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+}
+
+.activity-result h3 {
+    margin-bottom: 5px;
+
+    font-size: 1.7rem;
+}
+
+.activity-result p:last-child {
+    color: var(--text-soft);
+}
+
+
+/* =========================================
+   QUOTE
+   ========================================= */
+
+.quote-section {
+    padding: 130px 0;
+
+    background: #e9dfd7;
+}
+
+.quote-content {
+    max-width: 800px;
+
+    text-align: center;
+}
+
+.quote-mark {
+    display: block;
+
+    color: var(--primary);
+
+    font-family: var(--heading-font);
+
+    font-size: 5rem;
+
+    line-height: 0.7;
+}
+
+blockquote {
+    font-family: var(--heading-font);
+
+    font-size: clamp(1.8rem, 4vw, 3rem);
+
+    line-height: 1.3;
+}
+
+.quote-content p {
+    margin-top: 25px;
+
+    color: var(--text-soft);
+
+    font-size: 0.85rem;
+}
+
+
+/* =========================================
+   EVENING
+   ========================================= */
+
+.evening-section {
+    padding: 120px 0;
+}
+
+.evening-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin-top: 55px;
+}
+
+.evening-card {
+    padding: 30px 24px;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    background: var(--surface);
+
+    transition:
+        transform var(--transition),
+        background var(--transition);
+}
+
+.evening-card:hover {
+    transform: translateY(-6px);
+
+    background: #f9eee4;
+}
+
+.evening-card > span {
+    display: block;
+
+    margin-bottom: 25px;
+
+    font-size: 2rem;
+}
+
+.evening-card h3 {
+    margin-bottom: 8px;
+
+    font-size: 1.3rem;
+}
+
+.evening-card p {
+    color: var(--text-soft);
+
+    font-size: 0.85rem;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.site-footer {
+    padding: 35px 0;
+
+    border-top: 1px solid var(--border);
+}
+
+.footer-content {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    color: var(--text-soft);
+
+    font-size: 0.78rem;
+}
+
+.footer-content span {
+    color: var(--primary);
+}
+
+
+/* =========================================
+   RESPONSIVE - TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .meal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .meal-card {
+        min-height: 350px;
+    }
+
+    .evening-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .timeline::before {
+        left: 67px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 45px 45px 1fr;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE - MOBILE
+   ========================================= */
+
+@media (max-width: 650px) {
+
+    .container {
+        width: min(100% - 28px, 1120px);
+    }
+
+    .navbar {
+        min-height: 75px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        min-height: 680px;
+    }
+
+    .hero h1 {
+        font-size: clamp(3rem, 15vw, 5rem);
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .mood-section,
+    .day-section,
+    .activity-section,
+    .evening-section {
+        padding: 80px 0;
+    }
+
+    .meals-section {
+        padding: 80px 0;
+    }
+
+    .timeline::before {
+        display: none;
+    }
+
+    .timeline-item {
+        display: block;
+
+        margin-bottom: 20px;
+    }
+
+    .timeline-time {
+        margin-bottom: 8px;
+    }
+
+    .timeline-dot {
+        display: none;
+    }
+
+    .timeline-card {
+        padding: 22px;
+    }
+
+    .activity-result {
+        align-items: flex-start;
+
+        padding: 25px;
+    }
+
+    .activity-icon {
+        width: 58px;
+        height: 58px;
+
+        border-radius: 18px;
+    }
+
+    .evening-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quote-section {
+        padding: 90px 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+
+        gap: 8px;
+
+        text-align: center;
+    }
+}
+```
